@@ -1,3 +1,1 @@
-a=["cd","bg","df"]
-
-print min(a)
+print bin(1)
