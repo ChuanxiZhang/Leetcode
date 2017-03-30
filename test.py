@@ -1,1 +1,2 @@
-print bin(1)
+
+print dict(zip([1],[2]))
