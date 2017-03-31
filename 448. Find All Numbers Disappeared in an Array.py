@@ -1,11 +1,10 @@
 class Solution(object):
     def findDisappearedNumbers(self, nums):
-        result=list()
-        if not nums:
-            return []
+        nums=[0]+nums
         for i in range(len(nums)):
-            if i+1 not in nums:
-                result.append(i+1)
-        return result
+            nums[abs(nums[i])]=-abs(nums[abs(nums[i])])
+        return [i for i in range(len(nums)) if nums[i]>0]
+
+
 solution=Solution()
 print solution.findDisappearedNumbers([4,3,2,7,8,2,3,1])

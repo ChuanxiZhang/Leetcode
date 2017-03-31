@@ -1,2 +1,3 @@
-
-print dict(zip([1],[2]))
+a=[1,2]
+a+=[0]
+print len(a)
