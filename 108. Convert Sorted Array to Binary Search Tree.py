@@ -21,4 +21,4 @@ class Solution(object):
         return dfs(root, False)
 
 solution=Solution()
-print solution.sortedArrayToBST([1,2,3,4,5,6])
+print solution.sumOfLeftLeaves([1,2,3,4,5,6])
