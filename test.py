@@ -1,3 +1,3 @@
-a="hello"
+a=1
 
-print a[len(a)-5:len(a)]
+print (3,5)[a>0]

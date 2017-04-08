@@ -7,9 +7,4 @@
 
 class Solution(object):
     def lowestCommonAncestor(self, root, p, q):
-        """
-        :type root: TreeNode
-        :type p: TreeNode
-        :type q: TreeNode
-        :rtype: TreeNode
-        """
+        return root if (root.val-p.val)*(root.val-q.val)<1 else self.lowestCommonAncestor((root.left,root.right)[p.val>root.val],p,q)
