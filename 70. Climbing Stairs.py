@@ -1,0 +1,10 @@
+class Solution(object):
+    def climbStairs(self, n):
+        a=b=1
+        for i in range(n):
+            a,b=b,a+b
+        return a
+
+
+solution = Solution()
+print solution.climbStairs(4)
