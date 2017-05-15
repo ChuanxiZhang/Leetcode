@@ -1,1 +1,3 @@
-print bin(11)[2:].count("1")
+test=[2,1,4]
+test.pop(0)
+print test

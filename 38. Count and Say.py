@@ -1,18 +1,19 @@
-from collections import defaultdict
 class Solution(object):
     def countAndSay(self, n):
-        arr=defaultdict(int)
-        def count(nums,n):
-            res=""
-            arr = defaultdict(int)
-            if n==0:
-                return nums
-            for i in nums:
-                arr[i]+=1
-            for a in set(nums):
-                res+=(str(arr[a])+a)
-            return count(res,n-1)
-        return int(count("1",n))
+        cur = '1'
+        for _ in range(1, n):
+            pre = cur
+            cur = ''
+            count = 1
+            num = pre[0]
+            for char in pre[1:]:
+                if char == num:
+                    count += 1
+                else:
+                    cur += (str(count) + num)
+                    count = 1
+                    num = char
+            else:
+                cur += (str(count) + num)
+        return cur
 
-solution=Solution()
-print solution.countAndSay(3)
