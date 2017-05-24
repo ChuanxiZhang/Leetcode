@@ -6,8 +6,10 @@ class MovingAverage(object):
     def next(self, val):
         self.res.append(val)
         if len(self.res) <= self.up:
+            return round((reduce(lambda x, y: x + y, self.res) / float(len(self.res))), 5)
         else:
             self.res.pop(0)
+            return round((reduce(lambda x, y: x + y, self.res) / float(len(self.res))), 5)
 
 
 
