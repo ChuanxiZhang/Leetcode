@@ -1,28 +1,34 @@
 class Solution(object):
     def searchRange(self, nums, target):
-        result=[]
-        def binarySearch(low,high,target=target):
-            mid=(low+high)/2
-            while not low==high:
-                if nums[mid]==target:
-                    result.append(mid)
-                    if nums[mid-1]==target:
-                        result.append(mid-1)
-                        return binarySearch(low, mid-2)
-                    elif nums[mid+1]==target:
-                        result.append(mid +1)
-                        return binarySearch(mid+2, high-1)
-                elif nums[mid]<target:
-                    return binarySearch(mid,high)
-                else:
-                    return binarySearch(low,mid)
-        binarySearch(0,len(nums),target)
-        return result if result else [-1,-1]
-solution=Solution()
-print solution.searchRange([5,7,7,8,8,10],8)
-
-
-
-
-
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        low, high = 0, len(nums)
+        res = [-1, -1]
+        while low < high:
+            mid = (low + high) >> 1
+            if nums[mid] > target:
+                high = mid
+            if nums[mid] < target:
+                low = mid + 1
+            if nums[mid] == target:
+                res = [mid, mid]
+                left = mid - 1
+                right = mid + 1
+                while left >= 0:
+                    if nums[left] == target:
+                        res[0] = left
+                        left -= 1
+                    else:
+                        break
+                while right < len(nums):
+                    if nums[right] == target:
+                        res[1] = right
+                        right += 1
+                    else:
+                        break
+                break
+        return res
 
